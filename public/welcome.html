@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <!-- <script src="main.js"></script> -->
+    <title>Hello</title>
+  </head>
+  <body id="body"></body>
+  <script>
+    let token = "";
+    const query = window.location.search.substring(1);
+    if (query.startsWith("access_token")) {
+      token = query.substring(query.indexOf("=") + 1);
+    }
+    fetch("https://api.github.com/user", {
+      headers: {
+        Authorization: "token " + token,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        // https://developer.github.com/v3/users/#get-the-authenticated-user
+        const nameNode = document.createTextNode(`Welcome, ${res.name}`);
+        document.getElementById("body").appendChild(nameNode);
+        const img = document.createElement("img");
+        img.src = `${res.avatar_url}`;
+        img.classList.add("contain");
+        document.getElementById("body").appendChild(img);
+      });
+  </script>
+</html>

@@ -1,0 +1,15 @@
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgb(202, 192, 164);
+  margin: 10px 0;
+}
+
+.contain {
+  object-fit: contain;
+}
