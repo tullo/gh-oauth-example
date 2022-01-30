@@ -2,7 +2,10 @@
 
 https://github.com/settings/developers
 
-New OAuth App: `https://github.com/settings/applications/new`
+- New OAuth App: `https://github.com/settings/applications/new`
+- Homepage URL: http://localhost:8080/
+- Authorization callback URL: http://localhost:8080/oauth/redirect
+- Take note of `Client ID` & `Client secrets`
 
 ---
 
