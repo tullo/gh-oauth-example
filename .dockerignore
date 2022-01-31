@@ -1,0 +1,31 @@
+.git
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# vendor folders
+vendor
+
+# Test binary, built with go test -c
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# dlv binary
+__debug_bin
+
+gh-oauth-example
+.dockerignore
+.env
+.gitignore
+.stignore
+Dockerfile
+LICENSE
+README.md
+dot.env.template
+notes.md
+okteto.yml
+run.sh
