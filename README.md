@@ -4,4 +4,4 @@
 ./run.sh
 ```
 
-Open [localhost:8080/](http://localhost:8080/) and authenticate.
+Open [gh-oauth-example-dev-tullo.cloud.okteto.net/](https://gh-oauth-example-dev-tullo.cloud.okteto.net/) and authenticate.
