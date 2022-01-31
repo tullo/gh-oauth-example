@@ -8,6 +8,14 @@ import (
 )
 
 func main() {
+	var clientID, clientSecret string
+	if id, ok := os.LookupEnv("CLIENT_ID"); ok && len(id) > 0 {
+		clientID = id
+	}
+	if sec, ok := os.LookupEnv("CLIENT_SECRET"); ok && len(sec) > 0 {
+		clientSecret = sec
+	}
+
 	fs := http.FileServer(http.Dir("public"))
 	http.Handle("/", fs)
 
@@ -19,8 +27,6 @@ func main() {
 		code := r.FormValue("code")
 
 		// retrieve access token
-		const clientID = "73b2ad007cdc9bf3dd09"
-		const clientSecret = ""
 		url := fmt.Sprintf("https://github.com/login/oauth/access_token?client_id=%s&client_secret=%s&code=%s", clientID, clientSecret, code)
 		req, err := http.NewRequest(http.MethodPost, url, nil)
 		if err != nil {
