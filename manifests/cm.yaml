@@ -1,0 +1,10 @@
+---
+# kubectl create configmap gh-oauth-example --from-literal=CLIENT_ID=73b2ad007cdc9bf3dd09 \
+#  --dry-run=client -o yaml > cm.yaml
+apiVersion: v1
+data:
+  CLIENT_ID: 73b2ad007cdc9bf3dd09
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: gh-oauth-example

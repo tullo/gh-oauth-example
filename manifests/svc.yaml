@@ -1,0 +1,19 @@
+---
+# kubectl expose pod gh-oauth-example --port=8080 --target-port=8080 \
+#  --dry-run=client -o yaml > svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+  labels:
+    app: gh-oauth-example
+  name: gh-oauth-example
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: gh-oauth-example
+  type: ClusterIP

@@ -1,0 +1,36 @@
+---
+# kubectl create deployment gh-oauth-example \
+#  --image=docker.io/tullo/gh-oauth-example --port=8080 \
+#  --dry-run=client -o yaml > deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gh-oauth-example
+  name: gh-oauth-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gh-oauth-example
+  template:
+    metadata:
+      labels:
+        app: gh-oauth-example
+    spec:
+      containers:
+      - image: docker.io/tullo/gh-oauth-example
+        name: gh-oauth-example
+        ports:
+        - containerPort: 8080
+        env:
+          - name: CLIENT_ID
+            valueFrom:
+              configMapKeyRef:
+                key: CLIENT_ID
+                name: gh-oauth-example
+          - name: CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: client-secret
+                name: gh-oauth-example
