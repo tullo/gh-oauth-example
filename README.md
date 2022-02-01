@@ -26,6 +26,6 @@ kubectl apply -f manifests/
 kubectl set image deployment/gh-oauth-example gh-oauth-example=docker.io/tullo/gh-oauth-example:civo
 ```
 
-Open [gh-oauth-example.ac2c224e-978f-454a-8780-7af4740383ae.k8s.civo.com/](http://gh-oauth-example.ac2c224e-978f-454a-8780-7af4740383ae.k8s.civo.com/) and authenticate.
+Open [gh-oauth-example.ac2c224e-978f-454a-8780-7af4740383ae.k8s.civo.com/](https://gh-oauth-example.ac2c224e-978f-454a-8780-7af4740383ae.k8s.civo.com/) and authenticate.
 
 ---
