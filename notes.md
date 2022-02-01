@@ -25,3 +25,38 @@ The Users API allows to get public and private information about the authenticat
 
 ## credit
 [Creating an OAuth2 Client in Golang](https://www.sohamkamani.com/golang/oauth/)
+
+---
+
+## letsencrypt
+
+```yaml
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: hello@example.com
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    solvers:
+    - http01:
+        ingress:
+          class: traefik
+```
+
+---
+
+## How can I do a backup of my SealedSecrets?
+
+```sh
+kubectl get secret -n kube-system \
+    -l sealedsecrets.bitnami.com/sealed-secrets-key=active \
+    -o yaml > master.key.yaml
+```
+
+https://github.com/bitnami-labs/sealed-secrets#how-can-i-do-a-backup-of-my-sealedsecrets
+
+---
