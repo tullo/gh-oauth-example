@@ -19,7 +19,7 @@ spec:
         app: gh-oauth-example
     spec:
       containers:
-      - image: docker.io/tullo/gh-oauth-example
+      - image: docker.io/tullo/gh-oauth-example:civo
         name: gh-oauth-example
         ports:
         - containerPort: 8080
