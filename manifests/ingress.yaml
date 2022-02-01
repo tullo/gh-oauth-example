@@ -3,10 +3,17 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/ssl-redirect: "true"
   labels:
     app: gh-oauth-example
   name: gh-oauth-example-ingress
 spec:
+  tls:
+    - hosts:
+        - ac2c224e-978f-454a-8780-7af4740383ae.k8s.civo.com
+        - gh-oauth-example.ac2c224e-978f-454a-8780-7af4740383ae.k8s.civo.com
+      secretName: letsencrypt-prod
   rules:
     - host: gh-oauth-example.ac2c224e-978f-454a-8780-7af4740383ae.k8s.civo.com
       http:
