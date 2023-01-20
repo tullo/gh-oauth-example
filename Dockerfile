@@ -1,4 +1,4 @@
-FROM golang:1.17.6-alpine3.15 as build_stage
+FROM golang:1.19.3-alpine3.15 as build_stage
 ENV CGO_ENABLED 0
 
 WORKDIR /service
