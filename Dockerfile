@@ -5,7 +5,7 @@ WORKDIR /service
 COPY . .
 RUN go build
 
-FROM alpine:3.17
+FROM alpine:3.18
 EXPOSE 8080
 RUN apk --no-cache add ca-certificates
 RUN addgroup -g 3000 -S gh-oauth-example && adduser -u 100000 -S gh-oauth-example -G gh-oauth-example --no-create-home --disabled-password
